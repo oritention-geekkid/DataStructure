@@ -1,1 +1,85 @@
-<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link rel="shortcut icon" href="/static/img/favicon.ico" sizes="64x64"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,shrink-to-fit=no"/><meta name="theme-color" content=""/><link rel="manifest" href="/manifest.json"/><meta name="description" content=""><title>Cloudreve</title><script>window.subTitle="Cloudreve"</script><link href="/static/css/6.dac0b951.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>!function(i){function e(e){for(var t,r,n=e[0],o=e[1],a=e[2],c=0,u=[];c<n.length;c++)r=n[c],Object.prototype.hasOwnProperty.call(s,r)&&s[r]&&u.push(s[r][0]),s[r]=0;for(t in o)Object.prototype.hasOwnProperty.call(o,t)&&(i[t]=o[t]);for(h&&h(e);u.length;)u.shift()();return d.push.apply(d,a||[]),f()}function f(){for(var e,t=0;t<d.length;t++){for(var r=d[t],n=!0,o=1;o<r.length;o++){var a=r[o];0!==s[a]&&(n=!1)}n&&(d.splice(t--,1),e=p(p.s=r[0]))}return e}var r={},l={5:0},s={5:0},d=[];function p(e){if(r[e])return r[e].exports;var t=r[e]={i:e,l:!1,exports:{}};return i[e].call(t.exports,t,t.exports,p),t.l=!0,t.exports}p.e=function(d){var e=[];l[d]?e.push(l[d]):0!==l[d]&&{0:1}[d]&&e.push(l[d]=new Promise(function(e,n){for(var t="static/css/"+({0:"monaco-editor-common",1:"codeEditor",3:"pdf",4:"react-pdf"}[d]||d)+"."+{0:"48c935db",1:"31d6cfe0",3:"31d6cfe0",4:"31d6cfe0",7:"31d6cfe0",8:"31d6cfe0",9:"31d6cfe0",10:"31d6cfe0",11:"31d6cfe0",12:"31d6cfe0",13:"31d6cfe0"}[d]+".chunk.css",o=p.p+t,r=document.getElementsByTagName("link"),a=0;a<r.length;a++){var c=(i=r[a]).getAttribute("data-href")||i.getAttribute("href");if("stylesheet"===i.rel&&(c===t||c===o))return e()}var u=document.getElementsByTagName("style");for(a=0;a<u.length;a++){var i;if((c=(i=u[a]).getAttribute("data-href"))===t||c===o)return e()}var f=document.createElement("link");f.rel="stylesheet",f.type="text/css",f.onload=e,f.onerror=function(e){var t=e&&e.target&&e.target.src||o,r=new Error("Loading CSS chunk "+d+" failed.\n("+t+")");r.code="CSS_CHUNK_LOAD_FAILED",r.request=t,delete l[d],f.parentNode.removeChild(f),n(r)},f.href=o,document.getElementsByTagName("head")[0].appendChild(f)}).then(function(){l[d]=0}));var r=s[d];if(0!==r)if(r)e.push(r[2]);else{var t=new Promise(function(e,t){r=s[d]=[e,t]});e.push(r[2]=t);var n,o=document.createElement("script");o.charset="utf-8",o.timeout=120,p.nc&&o.setAttribute("nonce",p.nc),o.src=p.p+"static/js/"+({0:"monaco-editor-common",1:"codeEditor",3:"pdf",4:"react-pdf"}[d]||d)+"."+{0:"0ee4ab8c",1:"9c0f5e9b",3:"979142ac",4:"ba854e94",7:"894976eb",8:"fea77ad4",9:"c29343a1",10:"90a578ad",11:"e3871456",12:"eb267f4c",13:"a1d065bb"}[d]+".chunk.js";var a=new Error;n=function(e){o.onerror=o.onload=null,clearTimeout(c);var t=s[d];if(0!==t){if(t){var r=e&&("load"===e.type?"missing":e.type),n=e&&e.target&&e.target.src;a.message="Loading chunk "+d+" failed.\n("+r+": "+n+")",a.name="ChunkLoadError",a.type=r,a.request=n,t[1](a)}s[d]=void 0}};var c=setTimeout(function(){n({type:"timeout",target:o})},12e4);o.onerror=o.onload=n,document.head.appendChild(o)}return Promise.all(e)},p.m=i,p.c=r,p.d=function(e,t,r){p.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},p.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},p.t=function(t,e){if(1&e&&(t=p(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(p.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var n in t)p.d(r,n,function(e){return t[e]}.bind(null,n));return r},p.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return p.d(t,"a",t),t},p.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},p.p="/",p.oe=function(e){throw console.error(e),e};var t=this["webpackJsonpcloudreve-frontend"]=this["webpackJsonpcloudreve-frontend"]||[],n=t.push.bind(t);t.push=e,t=t.slice();for(var o=0;o<t.length;o++)e(t[o]);var h=n;f()}([])</script><script src="/static/js/6.a35ea5d2.chunk.js"></script><script src="/static/js/main.75dca0ff.chunk.js"></script></body></html>
+#include <stdio.h>
+#include <stdlib.h>
+
+/* 最小堆复用代码（使用数组） */
+#define ElementType int
+struct HNode {
+    ElementType *data;
+    int currentSize;
+    int capacity;
+};
+typedef struct HNode *MinHeap;
+
+#define MINDATA -1  // 哨兵元素定义
+
+MinHeap createMinHeap(int capacity) {
+    MinHeap minH = (MinHeap)malloc(sizeof(struct HNode));
+    minH->data = (ElementType *)malloc((capacity+1)*sizeof(ElementType));
+    minH->currentSize = 0;
+    minH->capacity = capacity;
+    minH->data[0] = MINDATA;
+
+    return minH;
+}
+int isEmpty(MinHeap H) {
+    return (H->currentSize==0);
+}
+int isFull(MinHeap H) {
+    return (H->currentSize==H->capacity);
+}
+void percolateDown (MinHeap H, int root) {
+    int currentLocation = root;
+    int minChild;
+    ElementType rootValue = H->data[root];
+
+    for (;currentLocation*2<=H->currentSize;currentLocation=minChild) {
+        minChild = currentLocation*2;
+        if (minChild!=H->currentSize&&H->data[minChild]>H->data[minChild+1]) {
+            minChild++;
+        }
+        if (rootValue<=H->data[minChild]) {
+            break;
+        }
+        else {
+            H->data[currentLocation] = H->data[minChild];
+        }
+    }
+
+    H->data[currentLocation] = rootValue;
+}
+void insert(MinHeap H, ElementType X) {
+    if (isFull(H)) puts("Error! Heap is full.");
+    else {
+        int insertLocator = ++H->currentSize;
+        for (;H->data[insertLocator/2]>X;insertLocator/2) {
+            H->data[insertLocator] = H->data[insertLocator/2];
+        }
+        H->data[insertLocator] = X;
+    }
+}
+ElementType popTop(MinHeap H) {
+    if (isEmpty(H)) {
+        puts("Error! Heap is full.");
+        return -1;
+    } 
+    else {
+        ElementType topValue = H->data[1];
+        H->data[1] = H->data[H->currentSize--];
+        percolateDown(H,1);
+        return topValue;
+    }
+
+}
+MinHeap buildMinHeap(ElementType *elements, int capacity) {
+    MinHeap ret = createMinHeap(capacity);
+    ret->currentSize = capacity;
+    for (int i=1;i<=capacity;i++) {
+        ret->data[i] = elements[i-1];
+    }
+    for (int i=ret->currentSize;i>0;i--) {
+        percolateDown(ret,i);
+    }
+
+    return ret;
+}
+/* 最小堆复用代码（使用数组） */
